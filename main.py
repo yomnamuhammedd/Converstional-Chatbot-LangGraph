@@ -1,10 +1,9 @@
 from fastapi import FastAPI
 from dotenv import load_dotenv
-import API
-load_dotenv()
+from APIS import chatbot_api
 
 app = FastAPI(title="E-commerce Chatbot API")
-app.include_router(API.chat_router, prefix="/api", tags=["chatbot"])
+app.include_router(chatbot_api.chat_router, prefix="/api", tags=["chatbot"])
 
 @app.get("/")
 async def root():
